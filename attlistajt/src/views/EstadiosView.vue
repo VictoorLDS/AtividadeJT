@@ -1,4 +1,5 @@
 <script>
+import {v4 as uuidv4} from 'uuid'
 export default {
   data() {
     return {
@@ -9,9 +10,19 @@ export default {
         {id: 'e33d09ba-8db8-4dd1-be14-0cea1ad9ac59', nome: 'Pepsi Center', time: 'Denver Nuggets'},
         {id: '7abaf6ba-6a70-4838-81d6-9d4eb40c0d34', nome: 'Target Center', time:'Minnesota Timberwolves'},
       ],
+      novo_estadio: ''
     };
   },
-}
+  methods: {
+    salvar() {
+      const novo_id = uuidv4();
+      this.estadios.push({
+        id: novo_id,
+        nome: this.novo_estadio,
+      });
+    },
+  },
+};
 </script>
 <template>
   <main>
@@ -20,8 +31,8 @@ export default {
         <h2>Gerenciamento de Estádios</h2>
       </div>
       <div class="form-input">
-        <input type="text" />
-        <button>Salvar</button>
+        <input type="text" v-model = 'novo_estadio' />
+        <button @click="salvar">Salvar</button>
       </div>
       <div class="list-estadio">
         <table>
