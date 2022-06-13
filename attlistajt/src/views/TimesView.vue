@@ -15,14 +15,21 @@ export default {
   },
   methods: {
     salvar () {
+      if (this.novo_time !== "") {
       const novo_id = uuidv4();
       this.times.push({
         id: novo_id,
         nome: this.novo_time,
-      });
+        });
+        this.novo_time = "";
+      };
     },
-  },
-};
+        excluir(time) {
+          const indice = this.times.indexOf(time);
+          this.times.splice (indice, 1);
+        },
+      },
+    };
 </script>
 <template>
   <main>
@@ -40,16 +47,19 @@ export default {
             <tr>
               <th>ID</th>
               <th>Nome</th>
-              <th>Ações</th>
               <th>Estádios</th>
+              <th>Ações</th>
             </tr>
           </thead>
           <tbody>
             <tr v-for='time in times' :key="time.id">
               <td>{{time.id}}</td>
               <td>{{time.nome}}</td>
-              <td>??</td>
               <td>{{time.estadio}}</td>
+              <td>
+                <button>Editar</button>
+                <button @click="excluir(time)">Excluir</button>
+              </td>
             </tr>
           </tbody>
         </table>
