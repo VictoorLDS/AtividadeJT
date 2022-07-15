@@ -1,11 +1,11 @@
 
 {
     "times": [
-        {"id": 1, "nome": "Categoria 1", "acoes": "?"},
-        {"id": 2, "nome": "Categoria 2", "acoes": "?"}
+        {"id": 1, "nome": "Time 1", "acoes": "?"},
+        {"id": 2, "nome": "Time 2", "acoes": "?"}
     ],
     "jogadores": [
-        {"id": 1, "nome": "Categoria 1", "times": "?"},
-        {"id": 2, "nome": "Categoria 2", "times": "?"}
+        {"id": 1, "nome": "Jogador 1", "times": "?"},
+        {"id": 2, "nome": "Jogador 2", "times": "?"}
     ]
 }
